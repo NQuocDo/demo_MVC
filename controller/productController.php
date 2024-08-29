@@ -1,14 +1,22 @@
 <?php
-    class  ProductController
-    {
-        public static function List()
-        {
+    include_once('model/db.php');
+    
+    class  ProductController{    
+        public static function List(){
             $data=0;
             require_once('./view/list.php'); 
         }
         public static function Create(){
-            $data1=[1,2,3,4,5];
+            $dataNumber=db::arrayNumber();
             require_once('./view/create.php');
+        }
+        public static function Detail(){
+            $dataArrayDS=db::layAll();
+            require_once('./view/detail.php');
+        }
+        public static function Edit(){
+            $dataArrayMSSV=db::layMSSV();
+            require_once('./view/edit.php');
         }
     }
 
